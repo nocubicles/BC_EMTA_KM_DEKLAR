@@ -4,10 +4,10 @@ tableextension 75640 "VAT Statement Report Line" extends "VAT Statement Report L
     {
         field(75639; "VAT Box Description"; Text[250])
         {
-            DataClassification = CustomerContent;
-            TableRelation = "VAT Description".Description;
-            ValidateTableRelation = false;
             Caption = 'Estonian VAT Box Description';
+            FieldClass = FlowField;
+            CalcFormula = lookup("VAT Description".Description where("Box No." = field("Box No.")));
+            Editable = false;
         }
     }
 }
